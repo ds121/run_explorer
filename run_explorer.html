@@ -1,0 +1,149 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <title>NGSRunExplorer</title>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css"
+        integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+    <!-- <link rel="stylesheet" href="/home/ccmb/Desktop/NGSRunExplorer/main/json_main.css"> -->
+    <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js"
+        integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous">
+    </script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js"
+        integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1" crossorigin="anonymous">
+    </script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"
+        integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM" crossorigin="anonymous">
+    </script>
+    <style>
+        *,
+        html,
+        body {
+            margin: 0;
+        }
+
+        header {
+            background-color: steelblue;
+            padding: 10px;
+            text-align: center;
+            position: sticky;
+        }
+
+        .sidenav {
+            height: 90%;
+            width: 15%;
+            position: fixed;
+            z-index: 1;
+            /* left: 0; */
+            background-color: #fff;
+            overflow-x: hidden;
+            padding-left: 20px;
+        }
+
+        .table_class {
+            margin: auto;
+            width: 50%;
+            border-collapse: collapse;
+        }
+
+        td,
+        th {
+            border: 1px solid rgb(0, 0, 0);
+            text-align: center;
+            font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
+            font-size: 18px;
+            font-stretch: extra-expanded;
+            line-height: 25px;
+        }
+
+        .unorderedList {
+            padding-bottom: 5px;
+            margin-top: 2px;
+        }
+
+        .list_data {
+            cursor: pointer;
+        }
+    </style>
+</head>
+
+<body>
+    <div>
+        <header>
+            <h1><strong>NGSRunExplorer</strong></h1>
+        </header>
+    </div>
+    <!-- <h6>READING A JSON FILE</h6> -->
+    <div class="sidenav">
+        <div id="sampleId">
+            <!-- sampleId list  -->
+        </div>
+    </div>
+    <div class="container-fluid">
+        <div class="row">
+            <div class="col-3">
+                <div class="row col-12">
+                </div>
+            </div>
+
+            <div class="col-9">
+                <br>
+                <div class="row col-12">
+                    <input type="file" id="select_file" value="Import" />
+                    <button id="import" type="button" onclick="parseData(); hideDiv()"
+                        class="btn btn-large btn-outline-secondary">Submit</button><br>
+                </div>
+                <div class="row col-12 p-4">
+                    <h3>Flowcell Summary</h3>
+                </div>
+                <div class="row col-12">
+                    <table class="table table-striped w-75 m-auto">
+                        <thead class="">
+                            <tr>
+                                <th>Clusters (Raw) </th>
+                                <th>Clusters (PF) </th>
+                                <th>Yield </th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr>
+                                <td id="clustersRaw"></td>
+                                <td id="clustersPF"></td>
+                                <td id="clustersyield"></td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+                <br><br>
+                <div class="row col-12">
+                    <h3>Lane Summary</h3>
+                </div>
+
+                <div class="row col-12">
+                    <div id='test_div'>
+                        <!-- Lane Summary tbale -->
+                    </div>
+                </div>
+                <br>
+                <div class="row col-12">
+                    <div id="select-list">
+
+                    </div>
+                </div>
+                <br>
+                <div class="row col-12">
+                    <div id="summary-table">
+                        <!-- All Summary table -->
+                    </div>
+                </div>
+                <br>
+
+            </div>
+        </div>
+
+    </div>
+
+    <script src="./json_main.js"></script>
+</body>
+
+</html>
